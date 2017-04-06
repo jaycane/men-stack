@@ -15,23 +15,21 @@ export default function seedDatabaseIfNeeded() {
     Todo.find({}).remove()
       .then(() => {
         Todo.create({
-          name: 'Development Tools',
-          info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
-                + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '
-                + 'Stylus, Sass, and Less.'
+          name: 'Routes',
+          info: 'Add model to routes'
         }, {
-          name: 'Server and Client integration',
-          info: 'Built with a powerful and fun stack: MongoDB, Express, '
-                + 'AngularJS, and Node.'
+          name: 'Error Page',
+          info: 'Create standalone error page in routes'
         }, {
-          name: 'Smart Build System',
-          info: 'Build system ignores `spec` files, allowing you to keep '
-                + 'tests alongside code. Automatic injection of scripts and '
-                + 'styles into your index.html'
+          name: 'Session secret',
+          info: 'Change session secret '
+                + 'in local.env.js'
         }, {
-          name: 'Modular Structure',
-          info: 'Best practice client and server structures allow for more '
-                + 'code reusability and maximum scalability'
+          name: 'Database reference',
+          info: 'Change database reference in environments '
+                + 'in production.js'
+                + 'in development.js'
+                + 'in test.js'
         }, {
           name: 'Optimized Build',
           info: 'Build process packs up your templates as a single JavaScript '
