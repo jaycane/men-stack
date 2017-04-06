@@ -218,3 +218,26 @@ gulp.task('serve', cb => {
         cb
     );
 });
+
+gulp.task('test', cb => {
+    return runSequence('test:server', cb);
+});
+
+gulp.task('test:server', cb => {
+    runSequence(
+        'env:all',
+        'env:test',
+        'mocha:unit',
+        'mocha:integration',
+        cb);
+});
+
+gulp.task('mocha:unit', () => {
+    return gulp.src(paths.server.test.unit)
+        .pipe(mocha());
+});
+
+gulp.task('mocha:integration', () => {
+    return gulp.src(paths.server.test.integration)
+        .pipe(mocha());
+});
