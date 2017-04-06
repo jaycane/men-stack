@@ -5,14 +5,16 @@
 
 'use strict';
 import Thing from '../api/thing/thing.model';
+import Todo from '../api/todo/todo.model';
 import User from '../api/user/user.model';
 import config from './environment/';
 
 export default function seedDatabaseIfNeeded() {
   if(config.seedDB) {
-    Thing.find({}).remove()
+    Thing.find({}).remove();
+    Todo.find({}).remove()
       .then(() => {
-        Thing.create({
+        Todo.create({
           name: 'Development Tools',
           info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
                 + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '
@@ -41,8 +43,8 @@ export default function seedDatabaseIfNeeded() {
                 + 'and openshift subgenerators'
         });
       })
-    .then(() => console.log('finished populating things'))
-    .catch(err => console.log('error populating things', err));
+    .then(() => console.log('finished populating todos'))
+    .catch(err => console.log('error populating todos', err));
 
     User.find({}).remove()
       .then(() => {
