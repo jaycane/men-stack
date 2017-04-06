@@ -4,19 +4,19 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
 import Todo from '../api/todo/todo.model';
 import User from '../api/user/user.model';
 import config from './environment/';
 
 export default function seedDatabaseIfNeeded() {
   if(config.seedDB) {
-    Thing.find({}).remove();
     Todo.find({}).remove()
       .then(() => {
         Todo.create({
           name: 'Routes',
           info: 'Add model to routes'
+                + 'to socket.io'
+                + 'to seed'
         }, {
           name: 'Error Page',
           info: 'Create standalone error page in routes'
